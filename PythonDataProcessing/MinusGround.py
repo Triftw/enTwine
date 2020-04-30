@@ -8,24 +8,21 @@ Created on Tue Feb 18 02:13:05 2020
 import os
 import numpy as np
 import csv
-path = 'C:\\Users\\Trif\\Desktop\\Cleaned'
-ground = 'ground_truth1.csv'
-test = 'overhand2'
-folder ='0411_1'
-                
+path = 'E:\\桌面N\\0426Knot_NT'
+ground = 'g3.csv'
+folder ='overhand'
 with open (path+'\\'+ground,'r') as g:
     groundf = csv.reader(g)
     groundf = list(groundf)
-    #targets = os.listdir(path+'\\'+folder)
-    targets =['ground_truth2.csv']
+    targets = os.listdir(path+'\\'+folder)
+    #targets =['ground_truth2.csv']
     if not os.path.exists(path+'\\'+'D'+folder):
         os.mkdir(path+'\\'+'D'+folder)
     for tf in targets:
         with open (path+'\\'+folder+'\\'+tf,'r') as f:
             file = csv.reader(f)
             file = list(file)
-            
-            with open(path+'\\'+'D'+folder+'\\'+'D'+tf,'w') as fw:
+            with open(path+'\\'+'D'+folder+'\\'+'OD'+tf,'w') as fw:
                 fw.write('t1,t2,t3,t4\n')
                 for i in range(2000):
                     t1 = float(file[i][0]) - float(groundf[i][0])
